@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gestion-prof-serivce
+  labels:
+    app: gestion-prof-serivce
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gestion-prof-serivce
+  template:
+    metadata:
+      name: gestion-prof-serivce
+      labels:
+        app: gestion-prof-serivce
+    spec:
+      containers:
+        - name: gestion-prof-serivce
+          image: nginx
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+              protocol: TCP
+      restartPolicy: Always
+      

@@ -1,0 +1,16 @@
+
+services:
+  gateway-service:
+    image: elhadji01/gestion-prof-service:latest
+    container_name: gestion-prof-service
+    restart: always
+    ports:
+      - "8087:8087"
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge
