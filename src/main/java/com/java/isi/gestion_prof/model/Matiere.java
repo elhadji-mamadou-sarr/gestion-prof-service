@@ -10,11 +10,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 
-@Setter
-@Getter
 @Entity
 @Builder
-@AllArgsConstructor
 public class Matiere {
     @Id
     @GeneratedValue
@@ -29,6 +26,27 @@ public class Matiere {
     public Matiere() {
     }
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
+    public String getLibelle() {
+        return libelle;
+    }
+
+    public void setLibelle(String libelle) {
+        this.libelle = libelle;
+    }
+
+    public String getDesignation() {
+        return designation;
+    }
+
+    public void setDesignation(String designation) {
+        this.designation = designation;
+    }
 }
