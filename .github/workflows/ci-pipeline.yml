@@ -18,7 +18,7 @@ jobs:
       IMAGE_NAME: elhadji01/gestion-prof-service
       REGISTRY_DEV: elhadji01/dev-registry
       REGISTRY_PROD: elhadji01/prod-registry
-      SONAR_PROJECT_KEY: elhadji-mamadou_gestion-prof-service
+      SONAR_PROJECT_KEY: elhadji-mamadou-sarr_gestion-prof-service
       SONAR_ORG: elhadji-mamadou-sarr
       SONAR_HOST: https://sonarcloud.io
 
