@@ -2,17 +2,19 @@ package com.java.isi.gestion_prof.controller;
 
 import com.java.isi.gestion_prof.model.Matiere;
 import com.java.isi.gestion_prof.service.MatiereService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/matieres")
-@RequiredArgsConstructor
 public class MatiereViewController {
 
     private final MatiereService matiereService;
+
+    public MatiereViewController(MatiereService matiereService) {
+        this.matiereService = matiereService;
+    }
 
     @GetMapping
     public String listMatieres(Model model) {

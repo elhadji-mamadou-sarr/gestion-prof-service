@@ -6,14 +6,15 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
+
+@Setter
+@Getter
 @Entity
 @Builder
+@AllArgsConstructor
 public class Matiere {
     @Id
     @GeneratedValue
@@ -24,4 +25,10 @@ public class Matiere {
 
     @Column(nullable = false, length = 100)
     private String designation;
+
+    public Matiere() {
+    }
+
+
+
 }

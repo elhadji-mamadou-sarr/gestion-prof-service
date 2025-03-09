@@ -2,7 +2,6 @@ package com.java.isi.gestion_prof.controller;
 
 import com.java.isi.gestion_prof.model.Matiere;
 import com.java.isi.gestion_prof.service.MatiereService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,10 +9,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/matieres")
-@RequiredArgsConstructor
 public class MatiereRestController {
 
     private final MatiereService matiereService;
+
+    public MatiereRestController(MatiereService matiereService) {
+        this.matiereService = matiereService;
+    }
 
     @GetMapping
     public List<Matiere> getAllMatieres() {

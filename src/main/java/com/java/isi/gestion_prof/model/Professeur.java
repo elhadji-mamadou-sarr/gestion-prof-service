@@ -3,9 +3,8 @@ package com.java.isi.gestion_prof.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
+@Setter
+@Getter
 @Entity
 @Builder
 public class Professeur {
@@ -27,4 +26,16 @@ public class Professeur {
     @ManyToOne
     @JoinColumn(name = "matiere_id")
     private Matiere matiere;
+
+    public Professeur() {
+
+    }
+
+    public Professeur(String nom, String prenom, String email, String telephone) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.telephone = telephone;
+    }
+
 }
