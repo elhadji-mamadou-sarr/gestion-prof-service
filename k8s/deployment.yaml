@@ -11,13 +11,14 @@ spec:
       app: gestion-prof-serivce
   template:
     metadata:
+      namespace: prod
       name: gestion-prof-serivce
       labels:
         app: gestion-prof-serivce
     spec:
       containers:
         - name: gestion-prof-serivce
-          image: nginx
+          image: elhadji01/gestion-prof-service
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
