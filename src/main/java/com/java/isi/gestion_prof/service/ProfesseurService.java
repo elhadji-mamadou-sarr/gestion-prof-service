@@ -9,10 +9,13 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
 public class ProfesseurService {
 
     private final ProfesseurRepository professeurRepository;
+
+    public ProfesseurService(ProfesseurRepository professeurRepository) {
+        this.professeurRepository = professeurRepository;
+    }
 
     public List<Professeur> getAllProfesseurs() {
         return professeurRepository.findAll();

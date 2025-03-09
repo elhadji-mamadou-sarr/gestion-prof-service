@@ -9,10 +9,13 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
 public class MatiereService {
 
     private final MatiereRepository matiereRepository;
+
+    public MatiereService(MatiereRepository matiereRepository) {
+        this.matiereRepository = matiereRepository;
+    }
 
     public List<Matiere> getAllMatieres() {
         return matiereRepository.findAll();
