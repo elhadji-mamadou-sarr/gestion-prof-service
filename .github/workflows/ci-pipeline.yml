@@ -77,8 +77,15 @@ jobs:
           TAG=$(echo $GITHUB_REF | sed 's/refs\/heads\///')
           IMAGE_TAG=${{ env.IMAGE_NAME }}:$TAG
           echo "Création de l'image Docker avec le tag : $IMAGE_TAG"
+          
           docker build -t $IMAGE_TAG .
           docker push $IMAGE_TAG
+          
+          # Ajouter le tag latest uniquement pour master ou main
+          if [ "$TAG" == "master" ] || [ "$TAG" == "main" ]; then
+            docker tag $IMAGE_TAG ${{ env.IMAGE_NAME }}:latest
+            docker push ${{ env.IMAGE_NAME }}:latest
+          fi
 
   deploy-k8s:
     needs: docker
@@ -122,6 +129,13 @@ jobs:
           kubectl apply -f k8s/namespace.yaml
           kubectl apply -f k8s/deployment.yaml
           kubectl apply -f k8s/service.yaml
+          kubectl apply -f k8s/monitoring-namespace.yaml
+          kubectl apply -f k8s/prometheus-configmap.yaml
+          kubectl apply -f k8s/prometheus-deployment.yaml
+          kubectl apply -f k8s/prometheus-service.yaml
+
+          kubectl apply -f k8s/grafana-deployment.yaml
+          kubectl apply -f k8s/grafana-service.yaml
 #          if [[ "$TAG" == "master" ]]; then
 #            kubectl apply -f k8s/namespace.yaml
 #            kubectl apply -f k8s/deployment.yaml
