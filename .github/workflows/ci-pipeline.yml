@@ -36,7 +36,7 @@ jobs:
         run: mvn clean install -DskipTests
 
 #      - name:  🖥 Exécuter les tests IHM
-#        run: |
+#        run: |   rld
 #          mvn verify -P ui-tests
 
 #      - name: Exécuter les tests unitaires
